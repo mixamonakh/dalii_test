@@ -1,0 +1,345 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", sans-serif;
+    background: #000;
+    color: #fff;
+}
+
+p,
+h1,
+h2 {
+    margin: 0;
+
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+}
+
+
+.tip {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    align-items: center;
+    gap: 6px;
+
+    &__text {
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.game {
+
+    overflow: hidden;
+    border-radius: 5px;
+    padding: 1px;
+    background: #fff;
+
+    // фон
+    &__bg {
+        background-size: cover;
+        background-position: 0 0;
+        background-repeat: no-repeat;
+        background-image: url('../image/game_bg/default_bg.png');
+        min-height: 665px;
+        border-radius: 5px 5px 0 0;
+        cursor: grab;
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    // фон правильного ответа
+    &__true-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../image/game_bg/true_bg.png');
+        background-size: cover;
+        opacity: 0;
+        transition: opacity 1s ease;
+        pointer-events: none;
+    }
+
+    // блок для предметов
+    &__objects {
+        position: absolute;
+        right: 20px;
+    }
+
+
+    // блок под текст
+    &__footer {
+        padding: 20px 40px;
+    }
+}
+
+// текст валидации
+.game-text {
+    color: #000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+// объекты
+
+.game-object {
+    background: url('../image/objects_bg.png')no-repeat 0%/contain;
+    width: 210px;
+    height: 210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__item {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+
+        &[data-object="key"] {
+            width: 127px;
+            height: 160px;
+            background-image: url('../image/objects/key.png');
+        }
+
+        &[data-object="bat"] {
+            width: 160px;
+            height: 160px;
+            background-image: url('../image/objects/bat.png');
+        }
+
+        &[data-object="watch"] {
+            width: 126px;
+            height: 126px;
+            background-image: url('../image/objects/watch.png');
+        }
+    }
+}
+
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.rotate-screen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+
+    &__icon {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+
+@media (max-width: 1400px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 1399px) {
+    .tip {
+        margin-bottom: 10px;
+    }
+    .game {
+        &__bg {
+            min-height: 518px;
+        }
+
+        &__footer {
+            padding: 20px 24px;
+        }
+    }
+
+    .game-object {
+        width: 180px;
+        height: 180px;
+
+        &:not(:first-child) {
+            margin-top: -20px;
+        }
+
+        &__item {
+            &[data-object="key"] {
+                width: 109px;
+                height: 136px;
+            }
+
+            &[data-object="bat"] {
+                width: 137px;
+                height: 137px;
+            }
+
+            &[data-object="watch"] {
+                width: 107px;
+                height: 136px;
+            }
+        }
+    }
+
+    .game-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 959px) {
+    .game {
+        &__bg {
+            min-height: 341px;
+        }
+
+        &__footer {
+            padding: 16px 24px;
+        }
+    }
+
+    .game-object {
+        width: 123px;
+        height: 123px;
+
+        &:not(:first-child) {
+            margin-top: -15px;
+        }
+
+        &__item {
+            &[data-object="key"] {
+                width: 74px;
+                height: 94px;
+            }
+
+            &[data-object="bat"] {
+                width: 94px;
+                height: 94px;
+            }
+
+            &[data-object="watch"] {
+                width: 74px;
+                height: 94px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 639px) {
+    .tip {
+        &__text {
+            font-size: 12px;
+        }
+    }
+    .game {
+        &__bg {
+            min-height: 253px;
+        }
+
+        &__footer {
+            padding: 10px 14px;
+        }
+    }
+
+    .game-object {
+        width: 90px;
+        height: 90px;
+
+        &:not(:first-child) {
+            margin-top: -10px;
+        }
+
+        &__item {
+            &[data-object="key"] {
+                width: 55px;
+                height: 69px;
+            }
+
+            &[data-object="bat"] {
+                width: 70px;
+                height: 70px;
+            }
+
+            &[data-object="watch"] {
+                width: 54px;
+                height: 69px;
+            }
+        }
+    }
+
+    .game-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 479px) {
+    .rotate-screen {
+        display: flex;
+    }
+
+    .game {
+        &__bg {
+            min-height: 166px;
+        }
+
+        &__objects {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .game-object {
+        width: 53px;
+        height: 53px;
+
+        &:not(:first-child) {
+            margin-top: -10px;
+        }
+
+        &:nth-child(1){
+            order: 1;
+        }
+        &:nth-child(2){
+            order: 3;
+        }
+        &:nth-child(3){
+            order: 2;
+        }
+
+        &__item {
+            &[data-object="key"] {
+                width: 32px;
+                height: 40px;
+            }
+
+            &[data-object="bat"] {
+                width: 40px;
+                height: 40px;
+            }
+
+            &[data-object="watch"] {
+                width: 32px;
+                height: 40px;
+            }
+        }
+    }
+}

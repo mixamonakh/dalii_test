@@ -1,0 +1,9 @@
+
+// основные стили
+@import 'base/variables';
+@import 'base/global';
+
+@import '../nunjucks/partials/components/**/*';
+@import '../nunjucks/partials/block/**/*';
+
+@import 'pages/**/*';
